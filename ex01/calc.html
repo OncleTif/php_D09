@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>calc</title>
+	</head>
+	<body>
+		<input id="lft_str" type="text" />
+		<select id="op">
+			<option value ="+">+</option>
+			<option value ="-">-</option>
+			<option value ="*">*</option>
+			<option value ="/">/</option>
+			<option value ="%">%</option>
+		</select>
+		<input id="rgt_str" type="text" />
+		<input type="submit" onclick="calc_it()" value="Try me!" />
+		<script>
+			function calc_it() {
+
+			lft_nbr = parseInt(document.getElementById('lft_str').value);
+			rgt_nbr = parseInt(document.getElementById('rgt_str').value);
+			if (!isNaN(lft_nbr) &&!isNaN(rgt_nbr) && lft_nbr >= 0 && rgt_nbr >= 0) {
+
+			calc = lft_nbr + document.getElementById('op').value + rgt_nbr;
+			alert(eval(calc));
+			}
+			else {
+
+alert("Error :(");
+			}
+			}
+
+		</script>
+	</body>
+</html>
