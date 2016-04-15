@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>balloon</title>
+
+	</head>
+	<body>
+
+		<div id="balloon" onclick="grow_ball()" onmouseout="reduce_ball()" style="background:red; width:200px; height:200px; border-radius: 100px"></div>
+		<script>
+			ballon = document.getElementById('balloon');
+
+			function grow_ball(){
+			color = getComputedStyle(ballon).backgroundColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+			if (color[1] != 0)
+			ballon.style.backgroundColor = 'green';
+			else if (color[2] != 0)
+			ballon.style.backgroundColor = 'blue';
+			else if (color[3] != 0)
+			ballon.style.backgroundColor = 'red';
+
+			if (parseInt(getComputedStyle(ballon).width) == 420) {
+			ballon.style.width = '200px';
+			ballon.style.height = '200px';
+			ballon.style.borderRadius = '100px';
+
+			}
+			else
+			{
+			ballon.style.width = parseInt(getComputedStyle(ballon).width) + 10 +'px';
+			ballon.style.height = parseInt(getComputedStyle(ballon).height) + 10 +'px';
+			ballon.style.borderRadius = parseFloat(getComputedStyle(ballon).borderRadius) + 5 +'px';
+			}
+			}
+
+
+
+			function reduce_ball(){
+			color = getComputedStyle(ballon).backgroundColor.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+			if (color[1] != 0)
+			ballon.style.backgroundColor = 'blue';
+			else if (color[2] != 0)
+			ballon.style.backgroundColor = 'red';
+			else if (color[3] != 0)
+			ballon.style.backgroundColor = 'green';
+
+			if (parseInt(getComputedStyle(ballon).width) > 200) {
+			ballon.style.width = parseInt(getComputedStyle(ballon).width) - 5 +'px';
+			ballon.style.height = parseInt(getComputedStyle(ballon).height) - 5 +'px';
+			ballon.style.borderRadius = parseFloat(getComputedStyle(ballon).borderRadius) - 2.5 +'px';
+			}
+			}
+		</script>
+	</body>
+</html>
