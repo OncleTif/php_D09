@@ -19,17 +19,24 @@
 
 			lft_nbr = parseInt(document.getElementById('lft_str').value);
 			rgt_nbr = parseInt(document.getElementById('rgt_str').value);
-			if (!isNaN(lft_nbr) &&!isNaN(rgt_nbr) && lft_nbr >= 0 && rgt_nbr >= 0) {
-
+			if (!isNaN(lft_nbr) && !isNaN(rgt_nbr) && lft_nbr >= 0 && rgt_nbr >= 0) {
+			if ((document.getElementById('op').value == "/" || document.getElementById('op').value == "%") && rgt_nbr == 0)
+			{
+alert("It's over 9000!");
+console.log("It's over 9000!");
+			}
+			else {
 			calc = lft_nbr + document.getElementById('op').value + rgt_nbr;
 			alert(eval(calc));
+			console.log(eval(calc));
+			}
 			}
 			else {
 
 alert("Error :(");
 			}
 			}
-
+			setInterval(function(){ alert("Please, use me..."); }, 30000);
 		</script>
 	</body>
 </html>
